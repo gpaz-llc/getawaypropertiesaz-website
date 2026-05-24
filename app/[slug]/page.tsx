@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { PROPERTIES, REVIEWS, getPropertyBySlug } from '@/data/properties'
 import InquiryForm from '@/components/InquiryForm'
+import OwnerRezWidget from '@/components/OwnerRezWidget'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -194,12 +195,12 @@ export default async function PropertyPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Right Column — Inquiry Form */}
+          {/* Right Column — Booking Widget */}
           <div className="lg:col-span-1">
-            <div id="inquire" className="sticky top-24 bg-white rounded-2xl border border-border p-8 shadow-[0_4px_24px_rgba(28,26,20,0.08)]">
-              <h2 className="font-serif text-2xl mb-1">Inquire to Book</h2>
-              <p className="text-muted text-sm mb-6">We respond within 2–4 hours. No fees to inquire.</p>
-              <InquiryForm propertyName={name} />
+            <div id="inquire" className="sticky top-24 bg-white rounded-2xl border border-border p-6 shadow-[0_4px_24px_rgba(28,26,20,0.08)]">
+              <h2 className="font-serif text-2xl mb-1">Check Availability</h2>
+              <p className="text-muted text-sm mb-4">Book direct and save — no platform fees.</p>
+              <OwnerRezWidget />
             </div>
           </div>
         </div>
