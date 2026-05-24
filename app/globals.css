@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================
+   Design Tokens — Getaway Properties AZ
+   Tone: Editorial Luxury × Mountain Nature
+   ============================================ */
+@theme {
+  /* Brand Colors */
+  --color-brand:        #7F933D;
+  --color-brand-dark:   #5B6B2F;
+  --color-brand-light:  #9BAD4E;
+
+  /* CTA / Accent */
+  --color-cta:          #C4862A;
+  --color-cta-dark:     #A66C1B;
+
+  /* Backgrounds */
+  --color-cream:        #F8F5F0;
+  --color-cream-alt:    #F0EBE1;
+  --color-cream-dark:   #E8E1D5;
+
+  /* Foreground */
+  --color-forest:       #1C1A14;
+  --color-forest-dark:  #1A1F12;
+  --color-muted:        #6B6355;
+  --color-border:       #DDD6CA;
+
+  /* Typography — injected from layout.tsx as CSS vars */
+  --font-serif:  var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans:   var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---- Base ---- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-forest);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-brand); border-radius: 3px; }
+
+/* ---- Headings use serif ---- */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Focus (WCAG AA) ---- */
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---- Glass Nav ---- */
+.nav-glass {
+  background: rgba(248, 245, 240, 0.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(221, 214, 202, 0.5);
 }
+
+/* ---- Hero overlay ---- */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(28,26,20,0.15) 0%,
+    rgba(28,26,20,0.05) 35%,
+    rgba(28,26,20,0.55) 70%,
+    rgba(28,26,20,0.82) 100%
+  );
+}
+
+/* ---- Destination card overlay ---- */
+.dest-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,26,20,0.78) 0%, transparent 55%);
+  transition: background 0.3s ease;
+}
+.dest-card:hover .dest-overlay {
+  background: linear-gradient(to top, rgba(28,26,20,0.9) 0%, rgba(28,26,20,0.12) 65%);
+}
+
+/* ---- Property card image zoom ---- */
+.card-zoom { transition: transform 0.5s ease; }
+.property-card:hover .card-zoom { transform: scale(1.04); }
+.property-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.property-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(28,26,20,0.13); }
+
+/* ---- Hero background parallax ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bg { background-attachment: fixed; }
+}
+
+/* ---- Body scroll lock ---- */
+.no-scroll { overflow: hidden; }
