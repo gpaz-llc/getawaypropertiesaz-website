@@ -8,27 +8,44 @@ export const metadata: Metadata = {
   title: "Getaway Properties AZ | Luxury Cabin Rentals in Arizona's White Mountains",
 }
 
-const DESTINATIONS = [
+const MOUNTAIN_DESTINATIONS = [
   {
     name: 'Pinetop',
     tagline: '7,000 ft · Pine forests · Golf, hiking & skiing',
     count: 8,
-    image: '/images/dest-pinetop.png',
+    image: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-1212321083657110835/original/4aed1177-5267-4187-9af4-b2eb2d3b40bb.png?im_w=1200',
     href: '/properties?location=Pinetop',
   },
   {
     name: 'Show Low',
     tagline: '6,400 ft · Torreon Golf · Modern retreats',
     count: 3,
-    image: '/images/dest-showlow.png',
+    image: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-1329941594094268931/original/ddbf65c0-b10d-4f49-9cac-c1148765459a.jpeg?im_w=1200',
     href: '/properties?location=Show+Low',
   },
   {
     name: 'Overgaard',
     tagline: '6,600 ft · Rim Country · 2+ acre forest estates',
     count: 2,
-    image: '/images/dest-overgaard.png',
+    image: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-51698471/original/58915a1b-64e5-4a50-bf06-effbf9adb1f6.jpeg?im_w=1200',
     href: '/properties?location=Overgaard',
+  },
+]
+
+const VALLEY_DESTINATIONS = [
+  {
+    name: 'San Tan Valley',
+    tagline: 'Phoenix East Valley · Desert retreats · Year-round sun',
+    count: 1,
+    image: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-1617107283993890674/original/f6ff0b2a-e3c4-4985-89a2-0653c3701404.jpeg?im_w=1200',
+    href: '/properties?location=San+Tan+Valley',
+  },
+  {
+    name: 'Queen Creek',
+    tagline: 'East Valley · Farm country · Growing getaway market',
+    count: 0,
+    image: '/images/dest-queen-creek.png',
+    href: '/properties?location=Queen+Creek',
   },
 ]
 
@@ -83,6 +100,7 @@ export default function HomePage() {
                   <option value="Show Low">Show Low, AZ</option>
                   <option value="Overgaard">Heber-Overgaard, AZ</option>
                   <option value="San Tan Valley">San Tan Valley, AZ</option>
+                  <option value="Queen Creek">Queen Creek, AZ</option>
                 </select>
               </div>
               <div className="hidden md:block w-px bg-border my-3" aria-hidden="true" />
@@ -124,7 +142,7 @@ export default function HomePage() {
               <p className="text-muted mt-3 max-w-lg">Hand-selected luxury cabins maintained to the highest standards.</p>
             </div>
             <Link href="/properties" className="shrink-0 inline-flex items-center gap-2 border border-border text-forest rounded-full px-6 py-2.5 text-sm font-medium no-underline hover:border-brand hover:text-brand transition-colors">
-              View All 10 →
+              View All 14 →
             </Link>
           </div>
           <div className="grid gap-6" style={{gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))'}}>
@@ -134,7 +152,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-12">
             <Link href="/properties" className="inline-flex items-center gap-2 bg-brand text-white rounded-full px-8 py-3 font-semibold no-underline hover:bg-brand-dark transition-colors">
-              See All 10 Properties →
+              See All 14 Properties →
             </Link>
           </div>
         </div>
@@ -145,11 +163,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-12">
             <p className="text-brand text-xs font-semibold tracking-[0.12em] uppercase mb-2">Explore Arizona</p>
-            <h2 id="dest-h">Arizona&apos;s White Mountains</h2>
-            <p className="text-muted mt-3 max-w-lg mx-auto">Four breathtaking destinations — each with its own character and charm.</p>
+            <h2 id="dest-h">Arizona&apos;s White Mountains &amp; Valley</h2>
+            <p className="text-muted mt-3 max-w-lg mx-auto">Five destinations — mountain escapes and desert retreats, each with its own character.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {DESTINATIONS.map((d) => (
+          {/* Mountain destinations */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+            {MOUNTAIN_DESTINATIONS.map((d) => (
               <Link key={d.name} href={d.href} className="dest-card group relative block h-96 rounded-2xl overflow-hidden no-underline" aria-label={`Browse ${d.name} properties`}>
                 <Image src={d.image} alt={`${d.name}, Arizona`} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="dest-overlay" aria-hidden="true" />
@@ -158,6 +177,22 @@ export default function HomePage() {
                   <p className="text-white/78 text-sm mb-4">{d.tagline}</p>
                   <span className="inline-flex items-center bg-white/15 border border-white/30 text-white px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm">
                     {d.count > 0 ? `${d.count} cabins →` : 'Coming soon →'}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          {/* Valley destinations */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:max-w-[66%] md:mx-auto">
+            {VALLEY_DESTINATIONS.map((d) => (
+              <Link key={d.name} href={d.href} className="dest-card group relative block h-64 rounded-2xl overflow-hidden no-underline" aria-label={`Browse ${d.name} properties`}>
+                <Image src={d.image} alt={`${d.name}, Arizona`} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="dest-overlay" aria-hidden="true" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                  <h3 className="font-serif text-2xl text-white font-semibold mb-1">{d.name}</h3>
+                  <p className="text-white/78 text-sm mb-3">{d.tagline}</p>
+                  <span className="inline-flex items-center bg-white/15 border border-white/30 text-white px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm">
+                    {d.count > 0 ? `${d.count} cabin →` : 'Coming soon →'}
                   </span>
                 </div>
               </Link>
