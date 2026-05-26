@@ -13,21 +13,21 @@ const DESTINATIONS = [
     name: 'Pinetop',
     tagline: '7,000 ft · Pine forests · Golf, hiking & skiing',
     count: 8,
-    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&h=750&q=80',
+    image: '/images/dest-pinetop.png',
     href: '/properties?location=Pinetop',
   },
   {
     name: 'Show Low',
     tagline: '6,400 ft · Torreon Golf · Modern retreats',
     count: 3,
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&h=750&q=80',
+    image: '/images/dest-showlow.png',
     href: '/properties?location=Show+Low',
   },
   {
     name: 'Overgaard',
     tagline: '6,600 ft · Rim Country · 2+ acre forest estates',
     count: 2,
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&h=750&q=80',
+    image: '/images/dest-overgaard.png',
     href: '/properties?location=Overgaard',
   },
 ]
@@ -50,7 +50,7 @@ export default function HomePage() {
         className="relative flex items-end pb-16 hero-bg"
         style={{
           minHeight: '100svh',
-          backgroundImage: "url('https://images.unsplash.com/photo-1652887626061-c32621ebbac3?auto=format&fit=crop&w=1920&h=1080&q=80')",
+          backgroundImage: "url('/images/hero-home.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
