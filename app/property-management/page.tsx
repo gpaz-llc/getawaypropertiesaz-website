@@ -210,7 +210,7 @@ export default function PropertyManagementPage() {
           <h2 className="text-white mb-3">Already a Getaway Properties Owner?</h2>
           <p className="text-white/80 mb-8 text-lg">Access your owner portal to view bookings, statements, and property performance — anytime, anywhere.</p>
           <a
-            href="https://portal.getawaypropertiesaz.com"
+            href="https://owners.getawaypropertiesaz.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-brand rounded-full px-8 py-3.5 font-semibold text-[0.9375rem] no-underline hover:bg-cream transition-colors"

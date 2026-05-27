@@ -59,7 +59,7 @@ export default function Footer() {
                 { href: '/properties?location=Show Low', label: 'Show Low Rentals' },
                 { href: '/about', label: 'About Us' },
                 { href: '/about#contact', label: 'Contact' },
-                { href: 'https://portal.getawaypropertiesaz.com', label: 'Owner Login ↗' },
+                { href: 'https://owners.getawaypropertiesaz.com', label: 'Owner Login ↗' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
