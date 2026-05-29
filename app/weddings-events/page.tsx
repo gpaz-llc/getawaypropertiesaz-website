@@ -59,7 +59,7 @@ const FEATURED_VENUES = [
 const PROCESS = [
   { step: '01', title: 'Reach Out', body: 'Fill out the event inquiry form below with your date, group size, and vision. Our team responds within a few hours.' },
   { step: '02', title: 'Choose Your Venue', body: 'We\'ll match you with the right property based on your headcount, event type, and needs — and answer every question.' },
-  { step: '03', title: 'Book Direct', body: 'No platform fees, no third-party markups. Book directly with us for the best rate and a dedicated point of contact.' },
+  { step: '03', title: 'Book Direct', body: 'Book directly with us for a dedicated point of contact and personalized support from inquiry through checkout.' },
   { step: '04', title: 'Show Up & Celebrate', body: 'We handle the details so you can focus on the moment. Our team is available throughout your stay.' },
 ]
 
@@ -270,7 +270,7 @@ export default function WeddingsEventsPage() {
                   ['📅', 'Flexible dates', 'Let us know your preferred dates and we\'ll check availability across all event-ready properties.'],
                   ['👥', 'Any group size', 'From 10 to 27 guests under one roof — we\'ll match you with the right space.'],
                   ['💬', 'Personal support', 'Our team handles questions before, during, and after your event.'],
-                  ['💳', 'Direct pricing', 'No platform fees or third-party markups. What you see is what you pay.'],
+                  ['💳', 'Custom pricing', 'Event pricing is tailored to your date, group size, and property. Reach out for a custom quote.'],
                 ].map(([icon, title, desc]) => (
                   <div key={title as string} className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0 text-lg" aria-hidden="true">{icon}</div>
