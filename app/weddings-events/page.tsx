@@ -270,7 +270,7 @@ export default function WeddingsEventsPage() {
                   ['📅', 'Flexible dates', 'Let us know your preferred dates and we\'ll check availability across all event-ready properties.'],
                   ['👥', 'Any group size', 'From 10 to 27 guests under one roof — we\'ll match you with the right space.'],
                   ['💬', 'Personal support', 'Our team handles questions before, during, and after your event.'],
-                  ['💳', 'Custom pricing', 'Event pricing is tailored to your date, group size, and property. Reach out for a custom quote.'],
+                  ['💳', 'Custom pricing', 'Event pricing is tailored to your date, group size, and property. An event hosting fee applies for weddings and private events. Reach out for a custom quote.'],
                 ].map(([icon, title, desc]) => (
                   <div key={title as string} className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0 text-lg" aria-hidden="true">{icon}</div>
