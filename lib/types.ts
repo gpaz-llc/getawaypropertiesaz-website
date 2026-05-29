@@ -15,6 +15,7 @@ export interface Property {
   description: string
   longDescription: string
   featured: boolean
+  highlight?: boolean
   pets?: boolean
 }
 

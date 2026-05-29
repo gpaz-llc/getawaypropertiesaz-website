@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import PropertyCard from '@/components/PropertyCard'
-import { PROPERTIES, REVIEWS, getFeaturedProperties } from '@/data/properties'
+import PropertyCarousel from '@/components/PropertyCarousel'
+import NewsletterForm from '@/components/NewsletterForm'
+import { PROPERTIES, REVIEWS, getHighlightProperties } from '@/data/properties'
 
 export const metadata: Metadata = {
   title: "Getaway Properties AZ | Luxury Cabin Rentals in Arizona's White Mountains",
@@ -57,8 +58,7 @@ const WHY_FEATURES = [
 ]
 
 export default function HomePage() {
-  const featured = getFeaturedProperties()
-  const preview = PROPERTIES.slice(0, 6)
+  const highlights = getHighlightProperties()
 
   return (
     <>
@@ -129,31 +129,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROPERTIES PREVIEW */}
-      <section id="properties" className="py-24 bg-white" aria-labelledby="props-h">
+      {/* PROPERTY CAROUSEL */}
+      <section id="properties" className="py-20 bg-white overflow-hidden" aria-labelledby="props-h">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
             <div>
               <p className="text-brand text-xs font-semibold tracking-[0.12em] uppercase mb-2 flex items-center gap-2">
                 <span className="block w-8 h-px bg-brand" aria-hidden="true" />
-                All Properties
+                14 Vacation Homes
               </p>
-              <h2 id="props-h">Available Properties</h2>
-              <p className="text-muted mt-3 max-w-lg">Hand-selected luxury cabins maintained to the highest standards.</p>
+              <h2 id="props-h">Browse All Properties</h2>
+              <p className="text-muted mt-3 max-w-lg">Mountains, lakes, desert retreats — swipe to explore every home we manage.</p>
             </div>
             <Link href="/properties" className="shrink-0 inline-flex items-center gap-2 border border-border text-forest rounded-full px-6 py-2.5 text-sm font-medium no-underline hover:border-brand hover:text-brand transition-colors">
-              View All 14 →
+              View All →
             </Link>
           </div>
-          <div className="grid gap-6" style={{gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))'}}>
-            {preview.map((p, i) => (
-              <PropertyCard key={p.id} property={p} priority={i < 3} />
+          <PropertyCarousel properties={PROPERTIES} />
+        </div>
+      </section>
+
+      {/* HIGHLIGHT PROPERTIES */}
+      <section className="py-20 bg-cream" aria-labelledby="highlights-h">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-12">
+            <p className="text-brand text-xs font-semibold tracking-[0.12em] uppercase mb-2">Top Picks</p>
+            <h2 id="highlights-h">Highlight Properties</h2>
+            <p className="text-muted mt-3 max-w-lg mx-auto">Handpicked by our team — exceptional stays that guests keep coming back to.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {highlights.map((p, i) => (
+              <Link key={p.id} href={`/${p.slug}`} className="group relative block rounded-2xl overflow-hidden no-underline" style={{height:'380px'}} aria-label={p.name}>
+                <Image src={p.images[0]} alt={p.name} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" priority={i === 0} />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/85 via-forest/20 to-transparent" aria-hidden="true" />
+                <div className="absolute top-4 left-4">
+                  <span className="inline-block bg-cta text-white rounded-full px-3 py-1 text-[0.7rem] font-bold tracking-wide uppercase">Top Pick</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-amber-400 text-xs font-semibold">★ {p.rating}</span>
+                    <span className="text-white/50 text-xs">({p.reviewCount} reviews)</span>
+                  </div>
+                  <h3 className="font-serif text-2xl text-white font-semibold mb-1">{p.name}</h3>
+                  <p className="text-white/70 text-sm mb-4">{p.locationDisplay} · {p.beds} bed · up to {p.guests} guests</p>
+                  <span className="inline-flex items-center bg-white/15 border border-white/30 text-white px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm group-hover:bg-white/25 transition-colors">
+                    View Property →
+                  </span>
+                </div>
+              </Link>
             ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link href="/properties" className="inline-flex items-center gap-2 bg-brand text-white rounded-full px-8 py-3 font-semibold no-underline hover:bg-brand-dark transition-colors">
-              See All 14 Properties →
-            </Link>
           </div>
         </div>
       </section>
@@ -228,39 +252,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED */}
-      <section className="py-24 bg-cream" aria-labelledby="feat-h">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
-            <p className="text-brand text-xs font-semibold tracking-[0.12em] uppercase mb-2">Guest Favorites</p>
-            <h2 id="feat-h">Where Our Guests Love to Stay</h2>
-            <p className="text-muted mt-3 max-w-lg mx-auto">Handpicked selections of our most sought-after vacation rentals.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {featured[0] && (
-              <Link href={`/${featured[0].slug}`} className="relative block rounded-2xl overflow-hidden no-underline group md:row-span-2" style={{height:'500px'}} aria-label={featured[0].name}>
-                <Image src={featured[0].images[0]} alt={featured[0].name} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" priority />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest/82 to-transparent" aria-hidden="true" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <span className="inline-block bg-cta text-white rounded-full px-4 py-1 text-xs font-bold mb-3">Guest Favorite ★ {featured[0].rating}</span>
-                  <h3 className="font-serif text-3xl text-white font-semibold mb-2">{featured[0].name}</h3>
-                  <p className="text-white/75 mb-4 text-sm">{featured[0].locationDisplay} · {featured[0].beds} bed · {featured[0].baths} bath · up to {featured[0].guests} guests</p>
-                  <span className="inline-flex items-center bg-white/15 border border-white/30 text-white px-5 py-2.5 rounded-full text-sm font-semibold backdrop-blur-sm">View Property →</span>
-                </div>
-              </Link>
-            )}
-            {featured.slice(1, 3).map((p) => (
-              <Link key={p.id} href={`/${p.slug}`} className="relative block rounded-2xl overflow-hidden no-underline group" style={{height:'240px'}} aria-label={p.name}>
-                <Image src={p.images[0]} alt={p.name} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest/80 to-transparent" aria-hidden="true" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="inline-block bg-cta text-white rounded-full px-3 py-0.5 text-[0.7rem] font-bold mb-2">★ {p.rating}</span>
-                  <h3 className="font-serif text-xl text-white font-semibold mb-1">{p.name}</h3>
-                  <p className="text-white/75 text-xs">{p.beds} bed · {p.baths} bath · {p.guests} guests</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+      {/* NEWSLETTER */}
+      <section className="py-20 bg-white" aria-labelledby="nl-h">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <p className="text-brand text-xs font-semibold tracking-[0.12em] uppercase mb-3">Travel Ideas · Once a Month</p>
+          <h2 id="nl-h" className="mb-4">Stay Inspired</h2>
+          <p className="text-muted mb-8 text-lg leading-relaxed">
+            Destination guides, off-season tips, and new properties — straight to your inbox.
+          </p>
+          <NewsletterForm />
+          <p className="text-muted/60 text-xs mt-4">No spam. Unsubscribe anytime.</p>
         </div>
       </section>
 

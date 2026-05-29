@@ -48,6 +48,10 @@ body {
 ::-webkit-scrollbar-track { background: var(--color-cream); }
 ::-webkit-scrollbar-thumb { background: var(--color-brand); border-radius: 3px; }
 
+/* ---- Carousel track — hide horizontal scrollbar ---- */
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ---- Headings use serif ---- */
 h1, h2, h3, h4 {
   font-family: var(--font-serif);

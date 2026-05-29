@@ -17,7 +17,7 @@ const STATS = [
 const FAQ = [
   {
     q: 'How do I book directly with you?',
-    a: "Fill out the inquiry form below or click 'Inquire to Book' on any property page. Our team responds within 2–4 hours with availability, rates, and a booking link. No accounts or memberships needed.",
+    a: "Fill out the inquiry form below or click 'Inquire to Book' on any property page. Our team will respond promptly with availability, rates, and a booking link. No accounts or memberships needed.",
   },
   {
     q: 'Is it cheaper to book direct vs. Airbnb?',
@@ -54,9 +54,9 @@ const CONTACT_INFO = [
     icon: <svg width="20" height="20" fill="none" stroke="var(--color-brand)" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
   },
   {
-    label: 'Response Time',
-    value: 'Within 2–4 hours',
-    icon: <svg width="20" height="20" fill="none" stroke="var(--color-brand)" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+    label: 'Book Direct',
+    value: 'No Platform Fees',
+    icon: <svg width="20" height="20" fill="none" stroke="var(--color-brand)" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
   },
 ]
 
@@ -188,7 +188,7 @@ export default function AboutPage() {
               </p>
               <h2 id="contact-heading" className="mb-4">Ready to Plan<br />Your Getaway?</h2>
               <p className="text-muted text-[1.0625rem] leading-[1.8] mb-10 max-w-md">
-                Have questions about a property, want to check availability, or need help choosing the right cabin for your group? Our team responds to every inquiry within 2–4 hours.
+                Have questions about a property, want to check availability, or need help choosing the right cabin for your group? Our team is here to help — just reach out.
               </p>
 
               <div className="space-y-6 mb-10">
@@ -224,7 +224,7 @@ export default function AboutPage() {
             <div>
               <div className="bg-cream-alt rounded-2xl p-10 border border-border">
                 <h3 className="font-serif text-2xl mb-1">Send a Message</h3>
-                <p className="text-muted text-sm mb-8">We&apos;ll get back to you within a few hours.</p>
+                <p className="text-muted text-sm mb-8">We&apos;ll get back to you as soon as we can.</p>
                 <InquiryForm propertyName="General Inquiry" />
               </div>
             </div>

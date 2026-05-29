@@ -22,6 +22,7 @@ export const PROPERTIES: Property[] = [
     description: 'Golf-course views, private hot tub, and a cozy fireplace — the perfect Pinetop escape for up to 9.',
     longDescription: 'Soak under the pines in a quiet Pinetop golf community — golf-course views, private hot tub, and a cozy fireplace inside. Big windows, an open kitchen with island, and space for 9 across 3 bedrooms make it easy to unwind after lake walks, hikes, or a day at Sunrise Park Resort.\n\nThe master bedroom on the main level has a comfortable king bed. Bedroom 2 offers a queen + twin — perfect for families. Upstairs, 4 twin beds make it ideal for kids or friends. Two full bathrooms, both with showers, are stocked with all essentials.\n\nThe open kitchen makes together-time easy, with a central island for breakfasts, snacks, and conversation. After dinner, gather by the fireplace for warm, cozy nights, or kick back with the TV as natural light pours in through the large windows. Step out back to your private patio — enjoy golf course views, melt into the hot tub, and end the evening around the gas fire pit.',
     featured: true,
+    highlight: true,
     pets: false,
   },
   {
@@ -68,6 +69,7 @@ export const PROPERTIES: Property[] = [
     description: 'Spacious 6BR/4BA Pinetop cabin nestled against the Apache-Sitgreaves Forest — pool table, fireplace, and BBQ for 20.',
     longDescription: 'Welcome to Chic\'s Coop, a spacious 6-bedroom, 4-bathroom cabin in Pinetop Lakes that sleeps 20. Nestled against the Apache-Sitgreaves National Forest, enjoy sweeping forest views, a pool table, fireplace, BBQ, and a fully stocked kitchen. Perfect for family getaways — just minutes from skiing, hiking, fishing, and golf.\n\nSix comfortable bedrooms sleep your entire group, and four full bathrooms mean no morning bottle-necks. The open kitchen and dining area is built for group meals, while the living room with fireplace draws everyone together for evenings in. The pool table becomes the center of friendly competition on rainy mountain days.\n\nUnwind on the deck overlooking the forest, fire up the BBQ for a summer cookout, or gather around the fire for cool mountain nights. Chic\'s Coop is the kind of place where everyone finds their rhythm — whether that\'s hiking at sunrise, napping by the fire, or staying up late around the table.',
     featured: true,
+    highlight: true,
     pets: false,
   },
   {
@@ -183,6 +185,7 @@ export const PROPERTIES: Property[] = [
     description: 'Spacious 5-bedroom forest retreat on 2+ private acres in Heber-Overgaard — sauna, gourmet kitchen, stone fireplace, and sleeps 19.',
     longDescription: 'Welcome to The Grand — a spacious 5-bedroom forest retreat in Heber-Overgaard, Arizona, perfect for family reunions, retreats, and group getaways. Nestled on over 2 private acres among tall pines, this updated mountain home sleeps up to 19 and features a gourmet kitchen, cozy stone fireplace, wrap-around deck, and a private in-room sauna for true relaxation in Rim Country.\n\nThe primary suite on the main floor has a king bed, forest views, ceiling fan, and a private ensuite with soaking tub and in-room sauna. Additional bedrooms accommodate families and groups in warm, restful comfort. Three full bathrooms are stocked with all essentials.\n\nThe gourmet kitchen features 2 fridges, 3 ovens, 3 sinks, 2 dishwashers, and twin islands — built for cooking together. The great room with oversized sectionals and floor-to-ceiling stone fireplace is the natural gathering space. Outside: expansive wrap-around deck, fire-pit courtyard, BBQ grill, and towering pines on over 2 private acres. A kid-friendly arts and crafts loft and pool table round out the entertainment. Ample parking including room for trailers.',
     featured: false,
+    highlight: true,
     pets: false,
   },
   {
@@ -371,4 +374,8 @@ export function getFeaturedProperties(): Property[] {
 export function getPropertiesByLocation(location: string): Property[] {
   if (location === 'all') return PROPERTIES
   return PROPERTIES.filter(p => p.location === location)
+}
+
+export function getHighlightProperties(): Property[] {
+  return PROPERTIES.filter(p => p.highlight)
 }
