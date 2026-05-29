@@ -139,7 +139,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4 mt-10">
                 {[
                   ['Team Managed', 'We handle every booking personally'],
-                  ['No Surprise Fees', 'What you see is what you pay'],
+                  ['Book Direct & Save', 'Skip the platform fees and book with us'],
                   ['Local Knowledge', 'Best trails, restaurants & hidden spots'],
                   ['24/7 Support', 'Always available during your stay'],
                 ].map(([title, desc]) => (

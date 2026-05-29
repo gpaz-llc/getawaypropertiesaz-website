@@ -57,7 +57,7 @@ const FEATURED_VENUES = [
 ]
 
 const PROCESS = [
-  { step: '01', title: 'Reach Out', body: 'Fill out the event inquiry form below with your date, group size, and vision. Our team responds within a few hours.' },
+  { step: '01', title: 'Reach Out', body: 'Fill out the event inquiry form below with your date, group size, and vision. Our team will be in touch to discuss the details.' },
   { step: '02', title: 'Choose Your Venue', body: 'We\'ll match you with the right property based on your headcount, event type, and needs — and answer every question.' },
   { step: '03', title: 'Book Direct', body: 'Book directly with us for a dedicated point of contact and personalized support from inquiry through checkout.' },
   { step: '04', title: 'Show Up & Celebrate', body: 'We handle the details so you can focus on the moment. Our team is available throughout your stay.' },
@@ -263,7 +263,7 @@ export default function WeddingsEventsPage() {
               </p>
               <h2 id="event-inquire-heading" className="mb-4">Let&apos;s Plan<br />Your Celebration</h2>
               <p className="text-muted text-[1.0625rem] leading-[1.8] mb-8 max-w-md">
-                Ready to start planning? Fill out the form and our team will get back to you within a few hours to discuss availability, pricing, and how we can make your event exceptional.
+                Ready to start planning? Fill out the form and our team will reach out to discuss availability, pricing, and how we can make your event exceptional.
               </p>
               <div className="space-y-5">
                 {[
