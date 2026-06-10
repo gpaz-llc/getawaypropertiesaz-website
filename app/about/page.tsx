@@ -4,7 +4,7 @@ import InquiryForm from '@/components/InquiryForm'
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Meet Lori Baker and the Getaway Properties AZ team — your trusted local hosts for luxury vacation rentals in Arizona\'s White Mountains.',
+  description: 'Why book with Getaway Properties AZ? Luxury vacation rentals in Arizona\'s White Mountains with no platform fees, personal service, and local expertise in Pinetop, Show Low & Overgaard.',
 }
 
 const STATS = [
@@ -77,9 +77,9 @@ export default function AboutPage() {
               <li className="text-white/90" aria-current="page">About</li>
             </ol>
           </nav>
-          <h1 id="about-heading" className="text-white italic max-w-lg mb-4">Meet Your Arizona Hosts</h1>
+          <h1 id="about-heading" className="text-white italic max-w-lg mb-4">Why Choose Getaway Properties AZ</h1>
           <p className="text-white/72 text-lg max-w-xl leading-relaxed">
-            Local experts who love the White Mountains as much as you will. We&apos;re not a platform — we&apos;re neighbors who want to share the magic of Arizona&apos;s high country.
+            A boutique vacation rental company rooted in Arizona&apos;s White Mountains — built on personal service, hand-picked properties, and a commitment to making every stay exceptional.
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               <div className="rounded-2xl overflow-hidden aspect-[4/5]">
                 <Image
                   src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&h=1000&q=80"
-                  alt="Lori Baker — host and owner of Getaway Properties AZ"
+                  alt="Luxury cabin in Arizona's White Mountains — Getaway Properties AZ"
                   width={800}
                   height={1000}
                   className="w-full h-full object-cover"
@@ -122,16 +122,16 @@ export default function AboutPage() {
               <h2 id="story-heading" className="mb-6">The Getaway Difference</h2>
               <div className="space-y-4 text-muted leading-[1.8] text-[1.0625rem]">
                 <p>
-                  Hi, I&apos;m <strong className="text-forest">Lori Baker</strong>, and I&apos;ve been hosting guests in Arizona&apos;s White Mountains for years. What started as a passion for sharing this incredible corner of the state has grown into a curated portfolio of properties I&apos;m genuinely proud of.
+                  <strong className="text-forest">Getaway Properties AZ</strong> was built on a simple belief — that a great vacation starts with a great property and a host who actually cares. We are a boutique short-term rental company specializing in luxury cabins in Arizona&apos;s White Mountains, and everything we do is designed around your experience.
                 </p>
                 <p>
-                  The White Mountains — Pinetop, Show Low, Overgaard — are some of Arizona&apos;s best-kept secrets. At 6,000–7,500 feet of elevation, the air is crisp, the pines are towering, and the pace is exactly what you need when you need to escape.
+                  Pinetop, Show Low, and Overgaard sit at 6,000–7,500 feet of elevation, surrounded by towering ponderosa pines, cool mountain air, and a pace of life the rest of Arizona simply can&apos;t offer. We know this region inside and out — and we&apos;ve hand-selected every property in our portfolio to reflect what this area does best.
                 </p>
                 <p>
-                  Every property I host is one I&apos;d stay in myself. That means great beds, real kitchen equipment, reliable WiFi, clean linens, and — perhaps most importantly — a host who answers her phone when you need her.
+                  Every home we manage is one we&apos;d be proud to stay in ourselves. That means premium bedding, fully equipped kitchens, reliable WiFi, spotless linens, and properties maintained to a standard well above what you&apos;ll find on the big platforms. No unpleasant surprises. No &ldquo;as-pictured&rdquo; disappointments.
                 </p>
                 <p>
-                  <strong className="text-forest">Book direct and save.</strong> When you book through me, there are no platform markups, no mystery fees. Just fair pricing, a warm welcome, and a host who&apos;s invested in making your trip perfect.
+                  <strong className="text-forest">When you book direct with us, you save.</strong> There are no Airbnb or VRBO service fees tacked on — just honest pricing, genuine hospitality, and a team that&apos;s reachable before, during, and after your stay.
                 </p>
               </div>
 
