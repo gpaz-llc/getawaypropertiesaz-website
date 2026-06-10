@@ -98,13 +98,6 @@ export default function Footer() {
                 </svg>
                 Pinetop · Show Low · Overgaard · San Tan Valley<br />Arizona
               </li>
-              <li className="flex items-center gap-3 text-white/55 text-[0.9375rem]">
-                <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                Response within 2–4 hours
-              </li>
             </ul>
           </div>
         </div>

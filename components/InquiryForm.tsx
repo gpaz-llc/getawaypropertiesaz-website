@@ -48,7 +48,7 @@ export default function InquiryForm({ propertyName, className = '' }: InquiryFor
         </div>
         <h3 className="font-serif text-2xl font-semibold mb-2">Inquiry Sent!</h3>
         <p className="text-muted max-w-xs leading-relaxed">
-          Thanks for reaching out. Lori will be in touch within 2–4 hours to confirm availability and rates.
+          Thanks for reaching out. We'll be in touch to confirm availability and rates.
         </p>
       </div>
     )
@@ -147,7 +147,7 @@ export default function InquiryForm({ propertyName, className = '' }: InquiryFor
       </button>
 
       <p className="text-center text-muted text-xs">
-        Your information is private and never shared. We respond within 2–4 hours.
+        Your information is private and never shared.
       </p>
     </form>
   )
