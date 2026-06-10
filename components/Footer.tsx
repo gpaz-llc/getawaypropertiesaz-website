@@ -18,7 +18,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-white/55 text-[0.9375rem] leading-relaxed max-w-xs mb-6">
-              Luxury vacation rentals in Arizona. Pinetop, Show Low, Overgaard &amp; San Tan Valley. Book direct and save.
+              Luxury vacation rentals in Arizona. Pinetop, Show Low, Overgaard, San Tan Valley &amp; Queen Creek. Book direct and save.
             </p>
             {/* Socials */}
             <div className="flex gap-3">
@@ -57,6 +57,7 @@ export default function Footer() {
                 { href: '/property-management', label: 'Property Management' },
                 { href: '/properties?location=Pinetop', label: 'Pinetop Cabins' },
                 { href: '/properties?location=Show Low', label: 'Show Low Rentals' },
+                { href: '/properties?location=Queen+Creek', label: 'Queen Creek Rentals' },
                 { href: '/about', label: 'About Us' },
                 { href: '/about#contact', label: 'Contact' },
                 { href: 'https://owners.getawaypropertiesaz.com', label: 'Owner Login ↗' },
@@ -96,7 +97,7 @@ export default function Footer() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                Pinetop · Show Low · Overgaard · San Tan Valley<br />Arizona
+                Pinetop · Show Low · Overgaard<br />San Tan Valley · Queen Creek, AZ
               </li>
             </ul>
           </div>
