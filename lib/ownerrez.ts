@@ -12,36 +12,39 @@ function getAuthHeaders(): Record<string, string> | null {
 }
 
 interface OwnerRezPhoto {
-  id: number
-  url: string
-  caption?: string
-  position?: number
+  large_url?: string
+  original_url?: string
+  cropped_url?: string
   sort_order?: number
+  position?: number
+}
+
+interface OwnerRezListing {
+  property_id: number
+  photos?: OwnerRezPhoto[]
 }
 
 interface OwnerRezProperty {
   id: number
   name: string
-  photos?: OwnerRezPhoto[]
-  listing?: { photos?: OwnerRezPhoto[] }
 }
 
 // Returns all photo URLs for a property matched by name.
-// Returns empty array if API creds are missing or the property isn't found —
-// the page falls back to the local images array in that case.
+// Falls back to empty array (page uses local images) if API creds are missing.
 export async function getOwnerRezPhotos(propertyName: string): Promise<string[]> {
   const headers = getAuthHeaders()
   if (!headers) return []
 
   try {
-    const listRes = await fetch(`${BASE_URL}/properties`, {
+    // Fetch all properties to find matching ID by name
+    const propsRes = await fetch(`${BASE_URL}/properties`, {
       headers,
-      next: { revalidate: 86400 }, // re-check property list once a day
+      next: { revalidate: 86400 },
     })
-    if (!listRes.ok) return []
+    if (!propsRes.ok) return []
 
-    const listData = await listRes.json()
-    const properties: OwnerRezProperty[] = listData.items ?? listData ?? []
+    const propsData = await propsRes.json()
+    const properties: OwnerRezProperty[] = propsData.items ?? propsData ?? []
 
     const nameLower = propertyName.toLowerCase()
     const match = properties.find(
@@ -51,18 +54,22 @@ export async function getOwnerRezPhotos(propertyName: string): Promise<string[]>
     )
     if (!match) return []
 
-    const detailRes = await fetch(`${BASE_URL}/properties/${match.id}`, {
+    // Fetch all listings with images (photos live on the listings endpoint)
+    const listingsRes = await fetch(`${BASE_URL}/listings?includeImages=true`, {
       headers,
-      next: { revalidate: 3600 }, // refresh photos hourly
+      next: { revalidate: 3600 },
     })
-    if (!detailRes.ok) return []
+    if (!listingsRes.ok) return []
 
-    const detail: OwnerRezProperty = await detailRes.json()
-    const photos: OwnerRezPhoto[] = detail.photos ?? detail.listing?.photos ?? []
+    const listingsData = await listingsRes.json()
+    const listings: OwnerRezListing[] = listingsData.items ?? listingsData ?? []
 
-    return photos
-      .sort((a, b) => (a.position ?? a.sort_order ?? 0) - (b.position ?? b.sort_order ?? 0))
-      .map((p) => p.url)
+    const listing = listings.find((l) => l.property_id === match.id)
+    if (!listing || !listing.photos?.length) return []
+
+    return listing.photos
+      .sort((a, b) => (a.sort_order ?? a.position ?? 0) - (b.sort_order ?? b.position ?? 0))
+      .map((p) => p.large_url ?? p.original_url ?? p.cropped_url ?? '')
       .filter(Boolean)
   } catch {
     return []
