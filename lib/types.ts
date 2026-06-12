@@ -17,6 +17,7 @@ export interface Property {
   featured: boolean
   highlight?: boolean
   pets?: boolean
+  ownerRezPropertyId?: number
 }
 
 export interface Review {

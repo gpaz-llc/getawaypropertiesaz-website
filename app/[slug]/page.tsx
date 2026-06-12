@@ -49,10 +49,10 @@ export default async function PropertyPage({ params }: PageProps) {
   const property = getPropertyBySlug(slug)
   if (!property) notFound()
 
-  const { name, tagline, locationDisplay, rating, reviewCount, beds, baths, guests, images, amenities, longDescription, pets } = property
+  const { name, tagline, locationDisplay, rating, reviewCount, beds, baths, guests, images, amenities, longDescription, pets, ownerRezPropertyId } = property
 
-  // Fetch all photos from OwnerRez; fall back to local images if API not configured
-  const orPhotos = await getOwnerRezPhotos(name)
+  // Fetch all photos from OwnerRez; fall back to local images if API not configured or property has no ID
+  const orPhotos = ownerRezPropertyId ? await getOwnerRezPhotos(ownerRezPropertyId) : []
   const allPhotos = orPhotos.length > 0 ? orPhotos : images
 
   const propertyReviews = REVIEWS.filter((r) => r.propertyId === property.id)

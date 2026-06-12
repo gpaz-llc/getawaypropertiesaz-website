@@ -24,6 +24,7 @@ export const PROPERTIES: Property[] = [
     featured: true,
     highlight: true,
     pets: false,
+    ownerRezPropertyId: 406203,
   },
   {
     id: 2,
@@ -47,6 +48,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Escape to this spacious 6-bedroom, 6.5-bath lodge in the heart of the White Mountains. Designed for memorable group getaways, this home sleeps 27 guests and offers everything you need for a peaceful, fun-filled escape — whether you\'re planning a multi-family vacation, a retreat, or an intimate mountain wedding.\n\nThe master bedroom features a luxurious king bed with a warm fireplace at your feet and a private balcony with stunning forest views. Five additional bedrooms sleep everyone in comfort, from kings to bunk configurations. All 6.5 bathrooms are stocked with essentials including bathtubs and steamer shower features.\n\nThe chef-style kitchen has a large island with bar seating, premium appliances, and a formal dining table. Gather around the indoor fireplace in the living room, challenge each other to ping pong, or head outside to the fire pit in the grassy front yard and BBQ grill. Wild horses have been spotted coming to drink at the lake in the evenings — a truly magical Arizona experience. This home has hosted weddings, elopements, family reunions, and corporate retreats.',
     featured: true,
     pets: false,
+    ownerRezPropertyId: 420617,
   },
   {
     id: 3,
@@ -71,6 +73,7 @@ export const PROPERTIES: Property[] = [
     featured: true,
     highlight: true,
     pets: false,
+    ownerRezPropertyId: 381446,
   },
   {
     id: 4,
@@ -94,6 +97,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Gather your group (and your dogs) in this spacious 5-bedroom Pinetop lodge, just a short walk from Woodland Lake. With soaring ceilings, a game loft, a fully stocked kitchen, covered back porch, fenced yard, and room for 10, this home is made for easy mountain getaways.\n\nThe main-floor primary suite has a king bed and private ensuite bath. A queen bedroom is also on the main floor. Upstairs you\'ll find two more queen bedrooms plus a twin room — perfect for kids. The game loft adds even more room to relax, giving kids and adults alike a fun place to play, laugh, and make memories. Every bedroom is designed to feel welcoming and easy to settle into.\n\nOutside, the covered back porch invites slow mornings with coffee and crisp evening conversations. The fenced yard adds extra breathing room for your dogs to roam freely. The fire pit creates the perfect setting for cool nights under the stars. Woodland Lake is just a short walk away when you\'re ready to explore.',
     featured: false,
     pets: true,
+    ownerRezPropertyId: 382475,
   },
   {
     id: 5,
@@ -117,6 +121,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Welcome to Shady Hill Lodge — a peaceful Pinetop retreat minutes from Woodland Lake. Enjoy shaded porches, a private loft balcony, a cozy wood-burning fireplace, and nonstop fun with a pool table and foosball. The fully fenced dog area makes traveling with pups easy, while the stocked kitchen and comfy spaces make long stays feel effortless.\n\nThe downstairs master suite has a king bed and private ensuite bathroom. Upstairs, a queen bedroom and a room with a queen bed plus bunk bed share a full bath. The loft adds flexible sleeping space with a futon plus access to a private balcony — perfect for morning coffee and fresh forest air.\n\nThe kitchen is fully stocked for real meals — not just snacks. After a day exploring Pinetop, gather around the wood-burning fireplace, kick back with a movie, or turn the evening into a friendly competition with foosball downstairs and pool table upstairs. With 2.5 bathrooms and a smart layout, the home is easy for families, friend groups, and longer stays.',
     featured: false,
     pets: true,
+    ownerRezPropertyId: 392004,
   },
   {
     id: 6,
@@ -140,6 +145,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Escape to Lone Pine — a cozy, pet-friendly cabin tucked into the quiet pines of Pinetop-Lakeside, perfect for couples or solo travelers seeking peace and simplicity in Arizona\'s White Mountains. With 82+ reviews and a warm, welcoming atmosphere, this little retreat has earned its reputation as a true hideaway.\n\nThe cabin sleeps two with a comfortable bedroom and one private bath. A warm pellet stove keeps things cozy on cool mountain nights, while the mini-split AC and heat handle every season. The fully fenced yard is ideal for dogs — bring your pup along and let them explore safely while you unwind on the deck with fresh pine-scented air.\n\nInside, fast WiFi, a 48" Smart TV with Amazon Prime, Disney+, and Netflix, plus comfortable lounge seating make rainy days just as enjoyable as sunny ones. Self check-in, free parking, and a private backyard complete the package. Whether you\'re here to hike the White Mountain trails, stargaze, or simply slow down and breathe — Lone Pine is your perfect base camp.',
     featured: false,
     pets: true,
+    ownerRezPropertyId: 430054,
   },
   {
     id: 7,
@@ -163,6 +169,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Welcome to Blazing Star Retreat — your modern mountain escape in the prestigious Torreon gated community of Show Low. This 3-bedroom, 3-bathroom home with a spacious loft offers a perfect blend of stylish comfort and serene natural surroundings. Whether you\'re here to relax, explore, or reconnect with loved ones, this beautifully designed retreat provides everything you need for an exceptional stay in Arizona\'s White Mountains.\n\nThe master bedroom is your own private sanctuary with a luxurious king bed and ensuite bathroom, located on the opposite end of the house for extra privacy. Two additional queen bedrooms and a fun loft with twin bunks, a couch, TV, and its own full bathroom round out the sleeping spaces — ideal for families or groups of up to 10.\n\nThe bright, open living room connects seamlessly to the fully stocked kitchen and dining area — perfect for group meals. Step outside to the large back deck surrounded by trees and fresh mountain air. The Torreon community is beautifully maintained with peaceful surroundings and easy access to the Torreon Golf Club.',
     featured: false,
     pets: false,
+    ownerRezPropertyId: 443273,
   },
   {
     id: 8,
@@ -187,6 +194,7 @@ export const PROPERTIES: Property[] = [
     featured: false,
     highlight: true,
     pets: false,
+    ownerRezPropertyId: 320885,
   },
   {
     id: 9,
@@ -210,6 +218,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Escape to The Grand + Basement — the complete experience of The Grand plus a fully equipped basement suite on over 2 acres of serene Rim Country forest in Heber-Overgaard, Arizona. With space for up to 24 guests, this light-filled retreat features a gourmet main kitchen, a sun-drenched great room with a stone fireplace, and a wrap-around deck overlooking peaceful woods.\n\nSeven bedrooms sleep your entire group in style: the primary suite has a king bed, soaking tub, and private in-room sauna. Upstairs bedrooms offer additional kings, queens, and cozy alcoves. The basement adds two more bedrooms and a second fully equipped kitchen — ideal for early risers, separate family units, or extended stays. Five full bathrooms keep mornings effortless.\n\nTwo living areas mean the group can spread out: the great room upstairs with stone fireplace and oversized sectionals, and the basement lounge with a pool table and comfortable seating. Outside: wrap-around deck, fire-pit courtyard, BBQ grill, and towering pines. This is the property for big celebrations, corporate retreats, and multi-family reunions.',
     featured: false,
     pets: false,
+    ownerRezPropertyId: 471458,
   },
   {
     id: 10,
@@ -233,6 +242,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Welcome to your sunny San Tan Valley home base — quiet, family-friendly, and close to dining and shopping. Named in honor of Ralph & Rosie, R&R Retreat is your place to truly rest and relax. Sleep up to 8 guests with a king primary suite, 2 queen bedrooms, and a den sleeper sofa. Enjoy a screened-in patio, fenced turf yard, BBQ grill, and in-home washer/dryer.\n\nThe primary suite features a spacious king bed and dedicated ensuite bathroom — ideal for unwinding after a day of exploring. Two queen bedrooms share convenient bathroom access, and the separate den with a sleeper sofa gives everyone their own space. Two full baths, each with tub/shower combo, are fully stocked with essentials.\n\nThe kitchen is set up for real-life cooking with a stove, microwave, dishwasher, side-by-side fridge, blender, waffle iron, and everything you need. Stream favorites on the Smart TV with Roku. Step into the screened-in patio for bug-free meals and evening hangs, or fire up the BBQ in the fenced turf yard. Perfect for desert hikes, farm-day adventures, and easy days in the Arizona sun.',
     featured: false,
     pets: false,
+    ownerRezPropertyId: 476393,
   },
   {
     id: 11,
@@ -256,6 +266,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Relax and recharge at The Buffalo Lodge — a stylish Show Low retreat designed for couples and small groups seeking comfort and natural beauty in Arizona\'s White Mountains. With a stone fireplace, modern finishes, a fully equipped kitchen, and a private deck with BBQ, this cozy 2-bedroom home is the perfect base for golf, hiking, and mountain air.\n\nThe home sleeps up to 6 guests across two well-appointed bedrooms and two private bathrooms. Unwind after a day on the trails or the fairways with a soak in the bathtub or a quiet evening by the fireplace. The open kitchen makes cooking together easy, and the private deck is the ideal spot for morning coffee or an evening cookout.\n\nJust minutes from Bison Golf Club, serene White Mountain lakes, and miles of hiking trails, The Buffalo Lodge puts the best of Show Low right at your doorstep. Whether you\'re here for golf, adventure, or simply to slow down and breathe in the mountain air, this retreat delivers comfort every step of the way.',
     featured: false,
     pets: false,
+    ownerRezPropertyId: 420268,
   },
   {
     id: 13,
@@ -279,6 +290,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Welcome to The Chalet \'74 — a charming A-frame cabin nestled in the pines of Pinetop-Lakeside with classic mountain architecture, inviting forest views, and everything you need for an unforgettable White Mountains getaway. Three bedrooms and a smart layout sleep up to 14 guests comfortably.\n\nThe A-frame design fills the home with character and warmth — vaulted ceilings, a cozy indoor fireplace, and a private balcony perfect for soaking in the mountain air. Two full bathrooms keep mornings running smoothly, and the fully stocked kitchen is ready for everything from quick breakfasts to full family dinners.\n\nStep outside to the grill for summer cookouts, or curl up by the fireplace on cool White Mountain evenings. Fast WiFi, Smart TV with streaming, washer and dryer, and self check-in make every stay effortless. Adventurous days filled with hiking, fishing, golf, and skiing at Sunrise Park Resort await — and The Chalet \'74 is the perfect cozy place to come home to.',
     featured: false,
     pets: false,
+    ownerRezPropertyId: 377979,
   },
   {
     id: 14,
@@ -302,6 +314,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Welcome to Turkey Track Shack — a luxury log cabin in Pinetop Country Club and a spacious retreat for families and groups seeking an Arizona mountain getaway. This 4-bedroom, 3-bath cabin sleeps 11 and features a game room with shuffleboard and foosball, a fire pit, wraparound deck, fully stocked kitchen, and fast Wi-Fi, with easy access to golf, hiking, fishing, and skiing at Sunrise Park Resort.\n\nFour comfortable bedrooms sleep your whole group across 3 full bathrooms. The wraparound deck is made for morning coffee, afternoon lounging, and evening conversations under the pines. The game room keeps everyone entertained on rainy mountain days, and the fire pit is perfect for cool mountain nights.\n\nPinetop Country Club puts you close to everything the White Mountains offer — world-class golf, trails through the Apache-Sitgreaves Forest, fishing on Woodland Lake, and Sunrise Park Resort for skiing and snowboarding in winter. A perfect home base for year-round adventures.',
     featured: false,
     pets: false,
+    ownerRezPropertyId: 451881,
   },
   {
     id: 12,
@@ -325,6 +338,7 @@ export const PROPERTIES: Property[] = [
     longDescription: 'Perched above the trees, Treetop Terrace feels like your own private treehouse in the heart of the White Mountains. This cozy 2-bedroom, 2-bathroom cabin in Show Low is the perfect escape for couples, small families, or remote workers who want mountain air, peaceful forest views, and room to breathe.\n\nTwo private balconies let you take in the treetop scenery morning and evening — perfect for coffee at sunrise or stargazing after dark. Inside, comfortable living spaces, a fully stocked kitchen, and fast WiFi make settling in effortless. Both bedrooms are cozy and well-appointed, with two full bathrooms keeping mornings easy. Sleeps up to 6 guests.\n\nDog-friendly with approval — bring your pup along for the adventure. Private entrance with keypad self check-in, free parking, and long-term stays available. Whether you\'re here to hike, decompress, or simply slow down in nature, Treetop Terrace delivers the mountain retreat experience you\'ve been looking for.',
     featured: false,
     pets: true,
+    ownerRezPropertyId: 302575,
   },
 ]
 
