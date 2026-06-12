@@ -20,28 +20,25 @@ interface OwnerRezPhoto {
 }
 
 interface OwnerRezListing {
-  property_id: number
   photos?: OwnerRezPhoto[]
 }
 
-// Returns all photo URLs for a property.
-// Requires the OwnerRez property ID — falls back to empty array if API creds missing.
+// Returns all photo URLs for a property by its OwnerRez property ID.
+// Falls back to empty array (page uses local images) if API creds are missing.
 export async function getOwnerRezPhotos(propertyId: number): Promise<string[]> {
   const headers = getAuthHeaders()
   if (!headers) return []
 
   try {
-    const res = await fetch(`${BASE_URL}/listings?includeImages=true`, {
+    // Fetch the listing directly by property ID — more reliable than listing all
+    const res = await fetch(`${BASE_URL}/listings/${propertyId}?includeImages=true`, {
       headers,
       next: { revalidate: 3600 },
     })
     if (!res.ok) return []
 
-    const data = await res.json()
-    const listings: OwnerRezListing[] = data.items ?? data ?? []
-
-    const listing = listings.find((l) => l.property_id === propertyId)
-    if (!listing?.photos?.length) return []
+    const listing: OwnerRezListing = await res.json()
+    if (!listing.photos?.length) return []
 
     return listing.photos
       .sort((a, b) => (a.sort_order ?? a.position ?? 0) - (b.sort_order ?? b.position ?? 0))
