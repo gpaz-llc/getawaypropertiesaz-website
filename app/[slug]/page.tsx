@@ -3,8 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { PROPERTIES, REVIEWS, getPropertyBySlug } from '@/data/properties'
-import InquiryForm from '@/components/InquiryForm'
 import OwnerRezWidget from '@/components/OwnerRezWidget'
+import PhotoGallery from '@/components/PhotoGallery'
+import { getOwnerRezPhotos } from '@/lib/ownerrez'
+
+export const revalidate = 3600 // ISR — re-fetch from OwnerRez hourly
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -48,48 +51,31 @@ export default async function PropertyPage({ params }: PageProps) {
 
   const { name, tagline, locationDisplay, rating, reviewCount, beds, baths, guests, images, amenities, longDescription, pets } = property
 
+  // Fetch all photos from OwnerRez; fall back to local images if API not configured
+  const orPhotos = await getOwnerRezPhotos(name)
+  const allPhotos = orPhotos.length > 0 ? orPhotos : images
+
   const propertyReviews = REVIEWS.filter((r) => r.propertyId === property.id)
   const relatedProperties = PROPERTIES.filter((p) => p.id !== property.id && p.location === property.location).slice(0, 3)
 
   return (
     <>
-      {/* HERO — Full-bleed property photo */}
-      <section className="relative pt-[4.5rem]" aria-label={`${name} hero image`}>
-        <div className="relative h-[60vh] min-h-[400px] max-h-[700px] overflow-hidden">
-          <Image
-            src={images[0]}
-            alt={`${name} — main photo`}
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-forest/50 via-transparent to-transparent" aria-hidden="true" />
-
-          {/* Breadcrumb over image */}
-          <div className="absolute top-6 left-6 right-6">
-            <nav aria-label="Breadcrumb">
-              <ol className="flex items-center gap-2 text-sm text-white/80 list-none p-0 m-0">
-                <li><Link href="/" className="text-white/80 no-underline hover:text-white">Home</Link></li>
-                <li aria-hidden="true" className="text-white/50">›</li>
-                <li><Link href="/properties" className="text-white/80 no-underline hover:text-white">Properties</Link></li>
-                <li aria-hidden="true" className="text-white/50">›</li>
-                <li className="text-white" aria-current="page">{name}</li>
-              </ol>
-            </nav>
-          </div>
+      {/* PHOTO GALLERY */}
+      <section className="pt-[4.5rem]" aria-label={`${name} photos`}>
+        {/* Breadcrumb */}
+        <div className="px-6 py-3">
+          <nav aria-label="Breadcrumb">
+            <ol className="flex items-center gap-2 text-sm text-muted list-none p-0 m-0">
+              <li><Link href="/" className="text-muted no-underline hover:text-forest">Home</Link></li>
+              <li aria-hidden="true" className="text-muted/50">›</li>
+              <li><Link href="/properties" className="text-muted no-underline hover:text-forest">Properties</Link></li>
+              <li aria-hidden="true" className="text-muted/50">›</li>
+              <li className="text-forest" aria-current="page">{name}</li>
+            </ol>
+          </nav>
         </div>
 
-        {/* Secondary image grid */}
-        {images.length > 1 && (
-          <div className="hidden md:grid grid-cols-2 gap-2 max-h-48 overflow-hidden" aria-label="Additional property photos">
-            {images.slice(1, 3).map((src, i) => (
-              <div key={i} className="relative h-48 overflow-hidden">
-                <Image src={src} alt={`${name} — photo ${i + 2}`} fill sizes="50vw" className="object-cover hover:scale-105 transition-transform duration-500" />
-              </div>
-            ))}
-          </div>
-        )}
+        <PhotoGallery photos={allPhotos} propertyName={name} />
       </section>
 
       {/* MAIN CONTENT */}
