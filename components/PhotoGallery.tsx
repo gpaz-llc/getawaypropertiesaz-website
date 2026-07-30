@@ -10,6 +10,10 @@ interface Props {
 
 export default function PhotoGallery({ photos, propertyName }: Props) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  // Contact-sheet view of every photo. Properties carry up to 88 images, which is
+  // far too many to page through one arrow-click at a time, so "View all" opens a
+  // scrollable grid and the lightbox becomes the drill-down from it.
+  const [gridOpen, setGridOpen] = useState(false)
 
   const open = (i: number) => setLightboxIndex(i)
   const close = () => setLightboxIndex(null)
@@ -17,9 +21,16 @@ export default function PhotoGallery({ photos, propertyName }: Props) {
   const next = useCallback(() => setLightboxIndex((i) => (i !== null ? (i + 1) % photos.length : 0)), [photos.length])
 
   useEffect(() => {
-    if (lightboxIndex === null) return
+    const overlayOpen = lightboxIndex !== null || gridOpen
+    if (!overlayOpen) return
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close()
+      // Escape unwinds one layer at a time: lightbox back to the grid it came
+      // from, then the grid itself.
+      if (e.key === 'Escape') {
+        if (lightboxIndex !== null) close()
+        else setGridOpen(false)
+      }
+      if (lightboxIndex === null) return
       if (e.key === 'ArrowLeft') prev()
       if (e.key === 'ArrowRight') next()
     }
@@ -29,7 +40,7 @@ export default function PhotoGallery({ photos, propertyName }: Props) {
       window.removeEventListener('keydown', handler)
       document.body.style.overflow = ''
     }
-  }, [lightboxIndex, prev, next])
+  }, [lightboxIndex, gridOpen, prev, next])
 
   if (photos.length === 0) return null
 
@@ -73,7 +84,7 @@ export default function PhotoGallery({ photos, propertyName }: Props) {
         {/* View all button */}
         {total > 1 && (
           <button
-            onClick={() => open(0)}
+            onClick={() => setGridOpen(true)}
             className="absolute bottom-4 right-4 bg-white text-forest text-sm font-medium px-4 py-2 rounded-lg border border-border shadow-sm hover:bg-cream transition-colors flex items-center gap-2"
             aria-label={`View all ${total} photos`}
           >
@@ -86,6 +97,55 @@ export default function PhotoGallery({ photos, propertyName }: Props) {
           </button>
         )}
       </div>
+
+      {/* All-photos contact sheet */}
+      {gridOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-white overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`All ${total} photos of ${propertyName}`}
+        >
+          <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-border px-6 py-4 flex items-center justify-between">
+            <div>
+              <h2 className="text-forest text-lg m-0">{propertyName}</h2>
+              <p className="text-muted text-sm m-0">{total} photos</p>
+            </div>
+            <button
+              onClick={() => setGridOpen(false)}
+              className="text-forest p-2 rounded-full border border-border hover:bg-cream transition-colors flex items-center gap-2 text-sm font-medium px-4"
+              aria-label="Close all photos"
+            >
+              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+              Close
+            </button>
+          </div>
+
+          <div className="max-w-6xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-3 gap-3">
+            {photos.map((src, i) => (
+              <button
+                key={src}
+                onClick={() => open(i)}
+                className="relative aspect-[3/2] overflow-hidden rounded-lg group cursor-pointer p-0 border-0 bg-forest/5"
+                aria-label={`View photo ${i + 1} of ${total} full size`}
+              >
+                <Image
+                  src={src}
+                  alt={`${propertyName} — photo ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  // Only the first screenful is eager; the rest stream in on scroll
+                  // so an 88-photo property doesn't fetch everything at once.
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Lightbox */}
       {lightboxIndex !== null && (

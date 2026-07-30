@@ -45,7 +45,7 @@ const VALLEY_DESTINATIONS = [
     name: 'Queen Creek',
     tagline: 'East Valley · Farm country · Growing getaway market',
     count: 0,
-    image: '/images/dest-queen-creek.png',
+    image: '/images/dest-queen-creek.webp',
     href: '/properties?location=Queen+Creek',
   },
 ]
@@ -67,7 +67,7 @@ export default function HomePage() {
         className="relative flex items-end pb-16 hero-bg"
         style={{
           minHeight: '100svh',
-          backgroundImage: "url('/images/hero-home.png')",
+          backgroundImage: "url('/images/hero-home.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

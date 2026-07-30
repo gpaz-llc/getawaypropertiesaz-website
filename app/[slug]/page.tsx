@@ -92,8 +92,14 @@ export default async function PropertyPage({ params }: PageProps) {
                   <h1 className="font-serif text-[2.5rem] leading-tight">{name}</h1>
                 </div>
                 <div className="text-right shrink-0">
-                  <div className="font-serif text-3xl font-bold text-cta">{rating}</div>
-                  <div className="text-sm text-muted mt-0.5">★ {reviewCount} reviews</div>
+                  {reviewCount > 0 ? (
+                    <>
+                      <div className="font-serif text-3xl font-bold text-cta">{rating}</div>
+                      <div className="text-sm text-muted mt-0.5">★ {reviewCount} reviews</div>
+                    </>
+                  ) : (
+                    <div className="font-semibold text-brand">✦ New listing</div>
+                  )}
                 </div>
               </div>
               <p className="text-muted font-medium mb-4">{tagline}</p>
@@ -214,7 +220,7 @@ export default async function PropertyPage({ params }: PageProps) {
                     />
                   </div>
                   <div className="p-5">
-                    <p className="text-cta text-xs font-semibold mb-1">★ {p.rating} · {p.reviewCount} reviews</p>
+                    <p className="text-cta text-xs font-semibold mb-1">{p.reviewCount > 0 ? `★ ${p.rating} · ${p.reviewCount} reviews` : '✦ New listing'}</p>
                     <h3 className="font-serif text-lg text-forest font-semibold mb-1 group-hover:text-brand transition-colors">{p.name}</h3>
                     <p className="text-muted text-sm">{p.beds} bed · {p.baths} bath · {p.guests} guests</p>
                   </div>

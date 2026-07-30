@@ -41,7 +41,11 @@ export default function PropertyCard({ property, priority = false }: PropertyCar
         {/* Rating */}
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[0.8rem] font-semibold text-cta">
-            ★ {rating} <span className="text-muted font-normal">({reviewCount} reviews)</span>
+            {reviewCount > 0 ? (
+              <>★ {rating} <span className="text-muted font-normal">({reviewCount} reviews)</span></>
+            ) : (
+              <span className="text-brand">✦ New listing</span>
+            )}
           </span>
           <span className="text-xs text-muted">{beds} bd · {baths} ba · {guests} guests</span>
         </div>
